@@ -1,0 +1,13 @@
+.home-container {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
+  justify-content: center;
+}
+.contact-me {
+  margin-top: 2%;
+  width: 80%;
+}
+.label-field-1 {
+  font-size: 500px;
+}

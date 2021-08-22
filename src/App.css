@@ -1,0 +1,10 @@
+.App {
+  margin: 1rem;
+  font-family: 'Press Start 2P';
+}
+@media only screen and (max-width: 600px) {
+  .App {
+    margin: 0;
+    font-size: 0.5rem;
+  }
+}

@@ -1,0 +1,20 @@
+.nav-elements {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 2%;
+}
+.ul-list {
+  font-size: 1.2rem;
+  padding: 2rem;
+  border-style: double none double none;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+.link {
+  color: black;
+}
+.link:hover {
+  text-decoration: none;
+  color: blue;
+}
