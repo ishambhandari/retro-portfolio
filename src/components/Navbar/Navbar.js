@@ -1,6 +1,7 @@
 import React from "react";
 import hamburger from "../../Assets/hamburger.png";
 import { ModalContext } from "../../Context/ModalState";
+import { Link } from "react-scroll";
 import Modal from "../Modal/Modal";
 import "./nav.css";
 
@@ -9,16 +10,43 @@ const Navbar = () => {
     const onClickModal = () => {
         setShowModal(true);
     };
+
     return (
         <div>
             <div className="nav-elements">
                 <ul className="ul-list">
-                    <a>
+                    <Link
+                        className="link"
+                        to="homePage"
+                        smooth={true}
+                        duration={400}
+                    >
                         <li className="link">Home</li>
-                    </a>
-                    <li>About</li>
-                    <li>Works</li>
-                    <li>Contact</li>
+                    </Link>
+                    <Link
+                        className="link"
+                        to="aboutPage"
+                        smooth={true}
+                        duration={800}
+                    >
+                        <li class="link">About</li>
+                    </Link>
+                    <Link
+                        className="link"
+                        to="workPage"
+                        smooth={true}
+                        duration={1000}
+                    >
+                        <li className="link">Works</li>
+                    </Link>
+                    <Link
+                        className="link"
+                        to="contactPage"
+                        smooth={true}
+                        duration={1000}
+                    >
+                        <li className="link">Contact</li>
+                    </Link>
                 </ul>
                 <div className="hamburger">
                     <button
