@@ -8,14 +8,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 .modal {
   border-radius: 1%;
   position: relative;
   background-color: white;
-  width: 60%;
-  height: 60%;
+  width: 90%;
+  height: 90%;
   display: flex;
+  overflow: scroll;
 }
 .modal-close {
   position: absolute;

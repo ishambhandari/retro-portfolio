@@ -6,7 +6,7 @@ import "react-typewriting-effect/dist/index.css";
 import "./home.css";
 const Home = () => {
     return (
-        <div style={{ marginTop: "10%" }}>
+        <div style={{ marginTop: "10%" }} id="homePage">
             <div className="home-container">
                 <p className="nes-balloon from-left nes-pointer ptag">
                     <Typewriter
