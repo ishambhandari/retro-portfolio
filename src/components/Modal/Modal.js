@@ -7,6 +7,7 @@ const Modal = (props) => {
   const [showModal, setShowModal] = React.useContext(ModalContext);
   const onCrossClick = () => {
     setShowModal(false);
+    props.close();
   };
   // const onHandleOutsideClick = (e) => {
   //     if (!closeModalRef.current.contains(e.target)) {
@@ -19,12 +20,14 @@ const Modal = (props) => {
 
   return (
     <div className="modal-bg">
-      <div className="modal" ref={closeModalRef}>
-        <h2>This is modal</h2>
+      <div
+        className={props.long ? "modal modal-long" : "modal modal-short"}
+        ref={closeModalRef}
+      >
         {props.children}
         <button
           type="button"
-          class="nes-btn is-error modal-close"
+          className="nes-btn is-error modal-close"
           onClick={onCrossClick}
         >
           X

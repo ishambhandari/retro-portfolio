@@ -1,42 +1,71 @@
 .nav-elements {
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 2%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 2%;
 }
 .ul-list {
-    font-size: 1.2rem;
-    padding: 2rem;
-    border-style: double none double none;
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
+  font-size: 1.2rem;
+  padding: 2rem;
+  border-style: double none double none;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
 }
 .link {
-    color: black;
+  color: black;
 }
 .link:hover {
-    text-decoration: none;
-    color: blue;
+  text-decoration: none;
+  color: blue;
 }
 .hamburger {
-    display: none;
+  display: none;
 }
 @media only screen and (max-width: 800px) {
-    .ul-list li {
-        font-size: 0.8rem;
-    }
+  .ul-list li {
+    font-size: 0.8rem;
+  }
 }
 
 @media only screen and (max-width: 550px) {
-    .hamburger {
-        display: flex;
-        justify-content: flex-end;
-    }
-    .img-ham {
-        width: 2rem;
-        height: 2rem;
-    }
-    .ul-list {
-        display: none;
-    }
+  .hamburger {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .img-ham {
+    width: 2rem;
+    height: 2rem;
+  }
+  .ul-list {
+    display: none;
+  }
+}
+.nav-btn {
+  width: 75%;
+  margin-left: 8rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.nav-btn-contact {
+  width: 70%;
+  margin-left: 8.7rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media only screen and (max-width: 400px) {
+  .nav-btn {
+    width: 75%;
+    margin-left: 6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-btn-contact {
+    width: 70%;
+    margin-left: 6.7rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 }

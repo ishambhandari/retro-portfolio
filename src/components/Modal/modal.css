@@ -14,10 +14,15 @@
   border-radius: 1%;
   position: relative;
   background-color: white;
-  width: 90%;
-  height: 90%;
+  width: 75%;
   display: flex;
   overflow: scroll;
+}
+.modal-short {
+  height: 60%;
+}
+.modal-long {
+  height: 90%;
 }
 .modal-close {
   position: absolute;

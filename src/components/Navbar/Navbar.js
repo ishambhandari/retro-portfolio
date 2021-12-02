@@ -7,10 +7,22 @@ import "./nav.css";
 
 const Navbar = () => {
   const [showModal, setShowModal] = React.useContext(ModalContext);
+  console.log("sho", showModal);
+  // const [showModal, setShowModal] = React.useState(false);
   const onClickModal = () => {
     setShowModal(true);
   };
 
+  const close = () => {
+    setShowModal(false);
+  };
+  React.useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
   return (
     <div>
       <div className="nav-elements">
@@ -19,7 +31,7 @@ const Navbar = () => {
             <li className="link">Home</li>
           </Link>
           <Link className="link" to="aboutPage" smooth={true} duration={800}>
-            <li class="link">About</li>
+            <li className="link">About</li>
           </Link>
           <Link className="link" to="workPage" smooth={true} duration={1000}>
             <li className="link">Works</li>
@@ -29,11 +41,49 @@ const Navbar = () => {
           </Link>
         </ul>
         <div className="hamburger">
-          <button type="button" class="nes-btn" onClick={onClickModal}>
+          <button type="button" className="nes-btn" onClick={onClickModal}>
             <img src={hamburger} className="img-ham" />
           </button>
+          {showModal && (
+            <Modal close={close}>
+              <div
+                style={{
+                  height: "100%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexDirection: "Column",
+                }}
+              >
+                <Link to="homePage" smooth={true} duration={400}>
+                  <button className="nes-btn nav-btn" onClick={() => close()}>
+                    Home
+                  </button>
+                </Link>
 
-          {showModal && <Modal />}
+                <Link to="aboutPage" smooth={true} duration={400}>
+                  <button className="nes-btn nav-btn" onClick={() => close()}>
+                    About
+                  </button>
+                </Link>
+
+                <Link to="workPage" smooth={true} duration={400}>
+                  <button className="nes-btn nav-btn" onClick={() => close()}>
+                    Works
+                  </button>
+                </Link>
+
+                <Link to="workPage" smooth={true} duration={400}>
+                  <button
+                    className="nes-btn nav-btn-contact"
+                    onClick={() => close()}
+                  >
+                    Contact
+                  </button>
+                </Link>
+              </div>
+            </Modal>
+          )}{" "}
         </div>
       </div>
     </div>
