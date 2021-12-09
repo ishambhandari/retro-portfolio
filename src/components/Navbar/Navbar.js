@@ -50,9 +50,9 @@ const Navbar = () => {
                 style={{
                   height: "100%",
                   display: "flex",
-                  alignItems: "center",
                   justifyContent: "center",
                   flexDirection: "Column",
+                  width: "100%",
                 }}
               >
                 <Link to="homePage" smooth={true} duration={400}>
