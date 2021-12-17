@@ -1,52 +1,73 @@
 .home-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-flow: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-flow: wrap;
 }
 .heading {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 .sub-heading {
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
 }
 .icon-container {
-    position: absolute;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
 }
 .icon-container i {
-    margin-right: 1rem;
-    margin-top: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
 }
 .retroimg {
-    height: 80vh;
-    width: 90%;
+  height: 80vh;
+  width: 90%;
 }
 .ptag {
-    margin-left: 50%;
-    width: 100%;
+  margin-left: 20%;
+  margin-right: 40%;
+  width: 100%;
+}
+.ttag {
+  padding: 4rem;
+}
+.atag {
+  width: 40%;
+  font-size: 10px;
+  height: 25%;
+  padding: 2px;
+  margin-left: 10px;
+}
+.animated-icon {
+  /* position: absolute; */
+  /* right: 0; */
+  /* margin-right: 5rem; */
+  display: flex;
+  flex-direction: row;
+}
+.tss {
+  margin-top: 3rem;
 }
 .one-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .icon-container-sm {
-    display: none;
+  display: none;
 }
 @media only screen and (max-width: 800px) {
-    .icon-container {
-        display: none;
-    }
-    .icon-container-sm {
-        display: flex;
-        flex-direction: column;
-    }
-    .icon-container-sm i {
-        padding: 1rem;
-    }
+  .icon-container {
+    display: none;
+  }
+  .icon-container-sm {
+    display: flex;
+    flex-direction: column;
+  }
+  .icon-container-sm i {
+    padding: 1rem;
+  }
 }

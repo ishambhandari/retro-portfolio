@@ -64,7 +64,10 @@ const Works = () => {
     <Router>
       <div id="workPage">
         <div className="home-container">
-          <h1>Works</h1>
+          <h1>
+            <span style={{ color: "#82A0C2", paddingRight: "10px" }}>#</span>
+            Works
+          </h1>
           <h5 style={{ marginTop: "1rem" }}>(Pinned projects)</h5>
         </div>
         <div className="home-container">

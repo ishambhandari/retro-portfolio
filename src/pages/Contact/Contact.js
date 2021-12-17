@@ -76,7 +76,10 @@ const Contact = () => {
   return (
     <div id="contactPage">
       <div className="home-container">
-        <h1>Contact Me </h1>
+        <h1>
+          <span style={{ color: "#82A0C2", paddingRight: "10px" }}>#</span>
+          Contact Me{" "}
+        </h1>
         <div className="nes-container with-title is-centered contact-me">
           <div className="nes-field">
             <label for="name_field" className="label-contact">

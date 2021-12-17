@@ -1,11 +1,16 @@
 import React from "react";
+import { Link } from "react-scroll";
 import Line from "../../components/Line/Line";
 import "./about.css";
 
 const About = () => {
   return (
     <div id="aboutPage">
-      <h1 className="home-container">About Me</h1>
+      <h1 className="home-container">
+        {" "}
+        <span style={{ color: "#82A0C2", paddingRight: "10px" }}>#</span>About
+        Me
+      </h1>
       <div className="home-container">
         <div className="nes-container with-title is-centered">
           <p className="title">About Me</p>
