@@ -21,7 +21,13 @@ const Modal = (props) => {
   return (
     <div className="modal-bg">
       <div
-        className={props.long ? "modal modal-long" : "modal modal-short"}
+        className={
+          props.long
+            ? "modal modal-long"
+            : props.successModal
+            ? "modal modal-success"
+            : "modal modal-short"
+        }
         ref={closeModalRef}
       >
         {props.children}
