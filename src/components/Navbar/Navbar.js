@@ -24,7 +24,7 @@ const Navbar = () => {
     }
   }, [showModal]);
   return (
-    <div>
+    <div id="navPage">
       <div className="nav-elements">
         <ul className="ul-list">
           <Link className="link" to="homePage" smooth={true} duration={400}>

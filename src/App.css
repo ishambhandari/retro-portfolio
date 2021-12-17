@@ -1,10 +1,22 @@
 .App {
   margin: 1rem;
-  font-family: 'Press Start 2P';
+  font-family: "Press Start 2P";
+}
+.endButton {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0.7rem;
+  margin: 1.5rem;
 }
 @media only screen and (max-width: 600px) {
   .App {
     margin: 0;
     font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .endButton {
+    display: none;
   }
 }

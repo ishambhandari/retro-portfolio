@@ -71,3 +71,9 @@
     padding: 1rem;
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  .animated-icon {
+    display: none;
+  }
+}
