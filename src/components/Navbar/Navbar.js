@@ -13,7 +13,7 @@ const Navbar = () => {
     setShowModal(true);
   };
 
-  const close = () => {
+  const close = (pageName) => {
     setShowModal(false);
   };
   React.useEffect(() => {
@@ -55,7 +55,13 @@ const Navbar = () => {
                   width: "100%",
                 }}
               >
-                <Link to="homePage" smooth={true} duration={400}>
+                <Link
+                  to="homePage"
+                  smooth={true}
+                  duration={400}
+                  onClick={() => close()}
+                  className="link-small"
+                >
                   <button className="nes-btn nav-btn" onClick={() => close()}>
                     Home
                   </button>

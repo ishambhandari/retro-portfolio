@@ -14,6 +14,9 @@
 .link {
   color: black;
 }
+.link-small {
+  height: auto;
+}
 .link:hover {
   text-decoration: none;
   color: blue;

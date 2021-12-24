@@ -4,3 +4,9 @@
   margin-top: 5%;
   justify-content: center;
 }
+.resume {
+  display: flex;
+  text-align: flex-start;
+  width: fit-content;
+  margin-top: 2rem;
+}

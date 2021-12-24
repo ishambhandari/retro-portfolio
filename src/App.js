@@ -6,6 +6,7 @@ import { Link } from "react-scroll";
 import Works from "./pages/Works/Works";
 import Contact from "./pages/Contact/Contact";
 import { ModalContext } from "./Context/ModalState";
+import up from "./Assets/up.png";
 import "./App.css";
 function App() {
   const [showModal, setShowModal] = React.useContext(ModalContext);
@@ -37,7 +38,16 @@ function App() {
         <div>
           <Link className="link" to="navPage" smooth={true} duration={200}>
             <button type="button" class="nes-btn is-error endButton">
-              ^
+              <span
+                style={{
+                  fontSize: "2rem",
+                  paddingLeft: "5px",
+                  paddingRight: "5px",
+                  bottom: 0,
+                }}
+              >
+                ↑
+              </span>
             </button>
           </Link>
         </div>

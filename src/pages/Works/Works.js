@@ -19,15 +19,21 @@ const Works = () => {
   const [imgLoading, setImgLoading] = React.useState(true);
   const [workDes, setWorkDes] = React.useState();
   const worksRef = React.useRef(null);
+  const openLink = (link) => {
+    window.open(link);
+  };
   const getData = async () => {
     try {
-      const data = await axios.get(`${envConfig.BASEURL}/api/allworks/${2}`);
+      const data = await axios.get(`${envConfig.BASEURL}/api/allworks`);
       setAllWork(data.data);
       setLoading(false);
     } catch (error) {
-      console.log("error");
+      console.log("error", error);
     }
   };
+  React.useEffect(() => {
+    console.log("this is data", workImages);
+  }, [workImages]);
   const onClickModal = async (id) => {
     setShowModal(true);
     setThisShowModal(true);
@@ -39,6 +45,7 @@ const Works = () => {
       await setWorkImages(imgData.data);
       await setWorkDes(singleWorkData.data);
       setImgLoading(false);
+      console.log("s", imgData);
     } catch (error) {
       console.log("error", error);
     }
@@ -73,15 +80,22 @@ const Works = () => {
         <div className="home-container">
           {loading === false ? (
             <div>
+              {console.log("this is data11", allWork)}
               {allWork.map((res) => {
-                console.log(res);
+                console.log("rrreess", res.file_location);
+
+                let newd = "";
+                if (res.file_location) {
+                  newd = `${envConfig.BASEURL}/${res.file_location.slice(7)}`;
+                  console.log("sdf", newd);
+                }
+
                 /* setUrl(res.file_location.slice(7)); */
-                const newd = `${envConfig.BASEURL}/${res.file_location.slice(
-                  7
-                )}`;
+
                 return (
                   <div className="nes-container work-card">
                     <div style={{ textAlign: "center", marginBottom: "1rem" }}>
+                      {console.log("ii", newd)}
                       <img src={newd} alt="Project" className="image" />
                     </div>
                     <button
@@ -134,22 +148,26 @@ const Works = () => {
                   </div>
                 )}
                 {imgLoading === true ? (
-                  <div>
+                  <div style={{ display: "flex" }}>
                     <img
                       src={loadinganimation}
                       style={{
                         width: "25%",
                         height: "30%",
-                        display: "flex",
+                        display: "bloc",
                         textAlign: "center",
-                        marginLeft: "100%",
-                        marginTop: "30%",
+                        justifyContent: "center",
+                        verticalAlign: "middle",
+                        marginTop: "25%",
+                        marginLeft: "45%",
                       }}
+                      className="mtloading"
                     />
                   </div>
                 ) : (
                   <div className="modal-image-container">
                     {workImages.map((res, index) => {
+                      console.log("wi", res);
                       const newi = `${
                         envConfig.BASEURL
                       }/${res.image_location.slice(7)}`;
@@ -160,11 +178,13 @@ const Works = () => {
                               index === current ? "slide-active" : "slide"
                             }
                           >
-                            <img
-                              src={newi}
-                              alt="photo"
-                              className="modal-image"
-                            />
+                            <a href={newi} target="__blank">
+                              <img
+                                src={newi}
+                                alt="photo"
+                                className="modal-image"
+                              />
+                            </a>
                           </div>
                         </div>
                       );
@@ -173,31 +193,41 @@ const Works = () => {
                 )}
 
                 <div>
-                  {console.log("dd", workDes)}
-                  {workDes && (
-                    <>
-                      <p className="nes-text is-primary work-des work-title">
-                        {workDes[0].title}
-                      </p>
-                      <p className="work-des">{workDes[0].description}</p>
+                  <>
+                    {workDes &&
+                      workDes.map((res) => {
+                        return (
+                          <>
+                            {console.log("hey", res)}
+                            <p className="nes-text is-primary work-des work-title">
+                              {res.title}
+                            </p>
+                            <p className="work-des">{res.description}</p>
 
-                      <div className="view-code">
-                        <button
-                          type="button"
-                          className="nes-btn is-primary button-text-code"
-                        >
-                          View Code
-                        </button>
-
-                        <button
-                          type="button"
-                          className="nes-btn is-primary button-text-code"
-                        >
-                          View Live
-                        </button>
-                      </div>
-                    </>
-                  )}
+                            <div className="view-code">
+                              {res.code_link && (
+                                <button
+                                  type="button"
+                                  className="nes-btn is-primary button-text-code"
+                                  onClick={() => openLink(res.code_link)}
+                                >
+                                  View Code
+                                </button>
+                              )}
+                              {res.live_link && (
+                                <button
+                                  type="button"
+                                  className="nes-btn is-primary button-text-code"
+                                  onClick={() => openLink(res.live_link)}
+                                >
+                                  View Live
+                                </button>
+                              )}
+                            </div>
+                          </>
+                        );
+                      })}
+                  </>
                 </div>
               </div>
             </div>

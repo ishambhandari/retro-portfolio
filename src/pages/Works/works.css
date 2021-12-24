@@ -8,7 +8,7 @@
 }
 .work-card {
   height: "auto";
-  width: 25rem;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-flow: wrap;
@@ -78,11 +78,16 @@ image-modal-container {
   justify-content: center;
 }
 
+.mtloading {
+  margin-top: 30%;
+}
+
 .work-des {
-  padding-left: 20rem;
+  padding-left: 2rem;
 }
 .work-title {
   font-size: 1.3rem;
+  margin-top: 2rem;
 }
 .work-description {
   font-size: 0.7;
@@ -107,12 +112,9 @@ image-modal-container {
     align-items: center;
     justify-content: center;
   }
-  .work-des {
-    padding-left: 15rem;
-  }
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1265px) {
   .modal-image-container {
     height: 300px;
     width: 350px;
@@ -130,6 +132,26 @@ image-modal-container {
     flex-direction: column;
     width: 30%;
     margin-left: 15rem;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .modal-image-container {
+    height: 300px;
+    width: 350px;
+    border-style: solid;
+    margin-top: 5rem;
+    boder-color: #000;
+    margin-left: 10rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .work-title {
+    font-size: 1.3rem;
+    margin-top: 1rem;
   }
 }
 

@@ -1,12 +1,13 @@
 import React from "react";
 import Line from "../../components/Line/Line";
-import retroman from "../../Assets/retroman.jpg";
-import { Typewriter } from "react-typewriting-effect";
+// import retroman from "../../Assets/retroman.jpg";
+// import { Typewriter } from "react-typewriting-effect";
+import gitlab from "../../Assets/gitlab.png";
 import "react-typewriting-effect/dist/index.css";
 import "./home.css";
 const Home = () => {
   React.useEffect(() => {
-    document.body.style.backgroundColor = "#fffefa";
+    document.body.style.backgroundColor = "#faeee0";
   }, []);
   return (
     <div style={{ marginTop: "10%" }} id="homePage">
@@ -48,17 +49,41 @@ const Home = () => {
         </div>
         <div className="one-row">
           <div className="icon-container">
-            <i class="nes-icon github is-large " />
-            <i class="nes-icon linkedin is-large" />
-            <i class="nes-icon instagram is-large" />
-            <i class="nes-icon reddit is-large" />
+            <a href="https://www.github.com/ishambhandari" target="__blank">
+              <i class="nes-icon github is-large " />
+            </a>
+
+            <a href="https://www.gitlab.com/ishambhandari" target="__blank">
+              <img
+                src={gitlab}
+                alt="gitlab"
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  transform: "translateX(-10%)",
+                  marginTop: "10px",
+                }}
+                className="image-rendering"
+              />
+            </a>
           </div>
 
           <div className="icon-container-sm">
-            <i class="nes-icon github is-medium" />
-            <i class="nes-icon linkedin is-medium" />
-            <i class="nes-icon instagram is-medium" />
-            <i class="nes-icon reddit is-medium" />
+            <a href="https://www.github.com/ishambhandari" target="__blank">
+              <i class="nes-icon github is-medium" />
+            </a>
+
+            <a href="https://www.gitlab.com/ishambhandari" target="__blank">
+              <img
+                src={gitlab}
+                alt="gitlab"
+                style={{
+                  width: "70px",
+                  height: "70px",
+                  transform: "translateY(-12%)",
+                }}
+              />
+            </a>
           </div>
           {/* <img src={retroman} alt="Retro man" className="retroimg" /> */}
         </div>

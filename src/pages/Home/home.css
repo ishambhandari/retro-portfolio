@@ -18,6 +18,8 @@
   display: flex;
   flex-direction: column;
   margin-left: 5%;
+  margin-top: 20%;
+  top: 0;
 }
 .icon-container i {
   margin-right: 1rem;
@@ -28,7 +30,7 @@
   width: 90%;
 }
 .ptag {
-  margin-left: 20%;
+  margin-left: 25%;
   margin-right: 40%;
   width: 100%;
 }
@@ -59,14 +61,20 @@
 .icon-container-sm {
   display: none;
 }
+.image-rendering {
+  image-rendering: pixalated;
+}
 @media only screen and (max-width: 800px) {
   .icon-container {
     display: none;
   }
   .icon-container-sm {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-top: 2rem;
+    margin-left: 3rem;
   }
+
   .icon-container-sm i {
     padding: 1rem;
   }
@@ -75,5 +83,13 @@
 @media only screen and (max-width: 1000px) {
   .animated-icon {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .ptag {
+    margin-left: 0%;
+    margin-right: 40%;
+    width: 100%;
   }
 }
