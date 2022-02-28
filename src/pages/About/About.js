@@ -16,18 +16,22 @@ const About = () => {
           <p className="title">About Me</p>
           <div style={{ textAlign: "justify" }}>
             Hello! I am Isham Bhandari, a software developer currently living in
-            Kathmandu, Nepal. I was never good at school, I am really just
-            interested in computers and technology. I used to work for a company
-            called innovate tech as a mobile developer. I got the opportuniy to
-            work on a popular education platform, My second teacher. Currently,
-            I am applying to universities to pursue masters degree.
+            Kathmandu, Nepal. I am really interested in computers and
+            technologies. I used to work for a company called innovate tech as a
+            mobile developer. I got the opportuniy to work on a popular
+            education platform, My second teacher. Currently, I am applying to
+            universities to pursue a master's degree.
           </div>
 
-          <div style={{ textAlign: "justify", marginTop: "2rem" }}>
-            Apart from computers, I am into classic literature especially
-            Russian classics. I am also interested in history and philosophy.
+          <div style={{ textAlign: "justify", marginTop: "15px" }}>
+            Apart from computers, I spend some of my free time reading books
+            especially classic literature.
           </div>
-          <a class="nes-btn resume" href="#">
+          <a
+            class="nes-btn resume"
+            target="__blank"
+            href="https://drive.google.com/file/d/1YXruzYCe_XFUqcjMb1EuOouI6XZlGfDA/view?usp=sharing"
+          >
             View Resume
           </a>
         </div>

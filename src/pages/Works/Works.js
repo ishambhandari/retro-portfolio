@@ -83,12 +83,14 @@ const Works = () => {
               {console.log("this is data11", allWork)}
               {allWork.map((res) => {
                 console.log("rrreess", res.file_location);
+                const newd = `${res.file_location}`;
+                console.log("file image", res.file_location);
 
-                let newd = "";
-                if (res.file_location) {
-                  newd = `${envConfig.BASEURL}/${res.file_location.slice(7)}`;
-                  console.log("sdf", newd);
-                }
+                /* let newd = ""; */
+                /* if (res.file_location) { */
+                /*   newd = `${envConfig.BASEURL}/${res.file_location.slice(7)}`; */
+                /*   console.log("sdf", newd); */
+                /* } */
 
                 /* setUrl(res.file_location.slice(7)); */
 
@@ -167,10 +169,13 @@ const Works = () => {
                 ) : (
                   <div className="modal-image-container">
                     {workImages.map((res, index) => {
-                      console.log("wi", res);
-                      const newi = `${
-                        envConfig.BASEURL
-                      }/${res.image_location.slice(7)}`;
+                      {
+                        console.log("thisisinsidemodal", res);
+                      }
+                      const newi = res.image_location;
+                      {
+                        console.log("inside_modal", newi);
+                      }
                       return (
                         <div>
                           <div
