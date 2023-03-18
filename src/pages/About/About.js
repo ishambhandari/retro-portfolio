@@ -15,23 +15,13 @@ const About = () => {
         <div className="nes-container with-title is-centered">
           <p className="title">About Me</p>
           <div style={{ textAlign: "justify" }}>
-            Hello! I am Isham Bhandari, a software developer currently living in
-            Kathmandu, Nepal. I am really interested in computers and
-            technologies. I used to work for a company called innovate tech as a
-            mobile developer. I got the opportuniy to work on a popular
-            education platform, My second teacher. Currently, I am applying to
-            universities to pursue a master's degree.
+            Hello, and welcome to my website! My name is Isham Bhandari, and I'm a Master's student at the University of Aberdeen. I'm currently seeking employment opportunities, so if you have any leads or would like to get in touch, please don't hesitate to contact me via email. Thank you for visiting my website!
           </div>
 
-          <div style={{ textAlign: "justify", marginTop: "15px" }}>
-            Apart from computers, I spend some of my free time reading books
-            especially classic literature.
-          </div>
           <a
             class="nes-btn resume"
             target="__blank"
-            href="https://drive.google.com/file/d/1YXruzYCe_XFUqcjMb1EuOouI6XZlGfDA/view?usp=sharing"
-          >
+            href="https://drive.google.com/file/d/1sUzOrB6VSSx7FHNNLXqrBH1NxvFKJyIT/view?usp=share_link">
             View Resume
           </a>
         </div>
