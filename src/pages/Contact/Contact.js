@@ -35,7 +35,7 @@ const Contact = () => {
     setThisShowModal(false);
   };
   const postEmail = async () => {
-    const res = await axios.post(`${envConfig.BASEURL}/api/mail`, {
+    const res = await axios.post(`${envConfig.BASEURL}/mail`, {
       name,
       email,
       message,

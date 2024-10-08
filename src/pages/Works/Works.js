@@ -24,11 +24,13 @@ const Works = () => {
   };
   const getData = async () => {
     try {
-      const data = await axios.get(`${envConfig.BASEURL}/api/allworks`);
+      console.log("this is base url", `${envConfig.BASEURL}/works`);
+      const data = await axios.get(`${envConfig.BASEURL}/works`);
       setAllWork(data.data);
       setLoading(false);
+      console.log("this is api datad", data);
     } catch (error) {
-      console.log("error", error);
+      console.log("this is error", error);
     }
   };
   React.useEffect(() => {
@@ -38,15 +40,15 @@ const Works = () => {
     setShowModal(true);
     setThisShowModal(true);
     try {
-      const imgData = await axios.get(`${envConfig.BASEURL}/api/workimg/${id}`);
+      // const imgData = await axios.get(`${envConfig.BASEURL}/works/${id}`);
       const singleWorkData = await axios.get(
-        `${envConfig.BASEURL}/api/allworks/${id}`
+        `${envConfig.BASEURL}/works/${id}`,
       );
-      await setWorkImages(imgData.data);
+      // await setWorkImages(imgData.data);
       await setWorkDes(singleWorkData.data);
-      setImgLoading(false);
-      console.log("s", imgData);
+      console.log("workdesk", workDes);
     } catch (error) {
+      setImgLoading(false);
       console.log("error", error);
     }
   };
@@ -82,23 +84,15 @@ const Works = () => {
             <div>
               {console.log("this is data11", allWork)}
               {allWork.map((res) => {
-                console.log("rrreess", res.file_location);
+                console.log("rrreess", res);
                 const newd = `${res.file_location}`;
                 console.log("file image", res.file_location);
 
-                /* let newd = ""; */
-                /* if (res.file_location) { */
-                /*   newd = `${envConfig.BASEURL}/${res.file_location.slice(7)}`; */
-                /*   console.log("sdf", newd); */
-                /* } */
-
-                /* setUrl(res.file_location.slice(7)); */
-
                 return (
-                  <div className="nes-container work-card">
+                  <div className="nes-container work-card" key={res.id}>
                     <div style={{ textAlign: "center", marginBottom: "1rem" }}>
                       {console.log("ii", newd)}
-                      <img src={newd} alt="Project" className="image" />
+                      <img src={res.imageUrl} alt="Project" className="image" />
                     </div>
                     <button
                       type="button"
@@ -122,6 +116,7 @@ const Works = () => {
                   textAlign: "center",
                   marginLeft: "20%",
                 }}
+                alt="Loading..."
               />
             </div>
           )}
@@ -129,112 +124,40 @@ const Works = () => {
         {thisShowModal && (
           <Modal close={close} long={true}>
             <div>
-              <div className="image-modal-container">
-                {imgLoading === false && (
-                  <div>
-                    <button
-                      className="nes-btn slider-btn-left"
-                      type="button"
-                      onClick={prevSlide}
-                    >
-                      &lt;
-                    </button>
-
-                    <button
-                      className="nes-btn slider-btn-right"
-                      type="button"
-                      onClick={nextSlide}
-                    >
-                      &gt;
-                    </button>
-                  </div>
-                )}
-                {imgLoading === true ? (
-                  <div style={{ display: "flex" }}>
-                    <img
-                      src={loadinganimation}
-                      style={{
-                        width: "25%",
-                        height: "30%",
-                        display: "bloc",
-                        textAlign: "center",
-                        justifyContent: "center",
-                        verticalAlign: "middle",
-                        marginTop: "25%",
-                        marginLeft: "45%",
-                      }}
-                      className="mtloading"
-                    />
-                  </div>
-                ) : (
+              {console.log("this is workdes", workDes)}
+              {workDes && (
+                <>
                   <div className="modal-image-container">
-                    {workImages.map((res, index) => {
-                      {
-                        console.log("thisisinsidemodal", res);
-                      }
-                      const newi = res.image_location;
-                      {
-                        console.log("inside_modal", newi);
-                      }
-                      return (
-                        <div>
-                          <div
-                            className={
-                              index === current ? "slide-active" : "slide"
-                            }
-                          >
-                            <a href={newi} target="__blank">
-                              <img
-                                src={newi}
-                                alt="photo"
-                                className="modal-image"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      );
-                    })}
+                    {console.log("imageurl", workDes.imageUrl)}
+                    <img src={workDes.imageUrl} alt="Failed to load Image" />
                   </div>
-                )}
+                  <p className="nes-text is-primary work-des work-title">
+                    {workDes.title}
+                  </p>
+                  <p className="work-des">{workDes.description}</p>
 
-                <div>
-                  <>
-                    {workDes &&
-                      workDes.map((res) => {
-                        return (
-                          <>
-                            {console.log("hey", res)}
-                            <p className="nes-text is-primary work-des work-title">
-                              {res.title}
-                            </p>
-                            <p className="work-des">{res.description}</p>
-
-                            <div className="view-code">
-                              {res.code_link && (
-                                <button
-                                  type="button"
-                                  className="nes-btn is-primary button-text-code"
-                                  onClick={() => openLink(res.code_link)}
-                                >
-                                  View Code
-                                </button>
-                              )}
-                              {res.live_link && (
-                                <button
-                                  type="button"
-                                  className="nes-btn is-primary button-text-code"
-                                  onClick={() => openLink(res.live_link)}
-                                >
-                                  View Live
-                                </button>
-                              )}
-                            </div>
-                          </>
-                        );
-                      })}
-                  </>
-                </div>
-              </div>
+                  <div className="view-code">
+                    {workDes.code_link && (
+                      <button
+                        type="button"
+                        className="nes-btn is-primary button-text-code"
+                        onClick={() => openLink(workDes.code_link)}
+                      >
+                        View Code
+                      </button>
+                    )}
+                    {workDes.live_link && (
+                      <button
+                        type="button"
+                        className="nes-btn is-primary button-text-code"
+                        onClick={() => openLink(workDes.live_link)}
+                      >
+                        View Live
+                      </button>
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </Modal>
         )}

@@ -15,13 +15,16 @@ const About = () => {
         <div className="nes-container with-title is-centered">
           <p className="title">About Me</p>
           <div style={{ textAlign: "justify" }}>
-            Hello, and welcome to my website! My name is Isham Bhandari, and I'm a Master's student at the University of Aberdeen. I'm currently seeking employment opportunities, so if you have any leads or would like to get in touch, please don't hesitate to contact me via email. Thank you for visiting my website!
+            Hello, and welcome to my website! My name is Isham Bhandari, and I'm
+            currently a master's student at the University of Aberdeen. Checkout
+            my resume.
           </div>
 
           <a
             class="nes-btn resume"
             target="__blank"
-            href="https://drive.google.com/file/d/1sUzOrB6VSSx7FHNNLXqrBH1NxvFKJyIT/view?usp=share_link">
+            href="https://drive.google.com/file/d/1sUzOrB6VSSx7FHNNLXqrBH1NxvFKJyIT/view?usp=share_link"
+          >
             View Resume
           </a>
         </div>
