@@ -24,11 +24,13 @@ const Works = () => {
   };
   const getData = async () => {
     try {
-      console.log("this is base url", `${envConfig.BASEURL}/works`);
-      const data = await axios.get(`${envConfig.BASEURL}/works`);
-      setAllWork(data.data);
+      console.log("this is base url", `${envConfig.BASEURL}`);
+      const data = await axios.get(`${envConfig.BASEURL}`);
+      const tmpData = JSON.parse(data.data.body);
+      const finalAllData = tmpData.data;
+      setAllWork(finalAllData);
+      console.log("this is IITT", finalAllData);
       setLoading(false);
-      console.log("this is api datad", data);
     } catch (error) {
       console.log("this is error", error);
     }
@@ -41,11 +43,10 @@ const Works = () => {
     setThisShowModal(true);
     try {
       // const imgData = await axios.get(`${envConfig.BASEURL}/works/${id}`);
-      const singleWorkData = await axios.get(
-        `${envConfig.BASEURL}/works/${id}`,
-      );
+      const singleWorkData = await axios.get(`${envConfig.BASEURL}/${id}`);
       // await setWorkImages(imgData.data);
       await setWorkDes(singleWorkData.data);
+      console.log("this is data", singleWorkData.data);
       console.log("workdesk", workDes);
     } catch (error) {
       setImgLoading(false);
@@ -90,9 +91,10 @@ const Works = () => {
 
                 return (
                   <div className="nes-container work-card" key={res.id}>
+                    <p>{res.title}</p>
                     <div style={{ textAlign: "center", marginBottom: "1rem" }}>
                       {console.log("ii", newd)}
-                      <img src={res.imageUrl} alt="Project" className="image" />
+                      <img src={res.imageUrl} alt="  " className="image" />
                     </div>
                     <button
                       type="button"

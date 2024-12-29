@@ -38,7 +38,7 @@ const Contact = () => {
     const res = await axios.post(`${envConfig.BASEURL}/mail`, {
       name,
       email,
-      message,
+      description: message,
     });
     return res;
   };
@@ -56,13 +56,16 @@ const Contact = () => {
       setEmailLoading(false);
     } else {
       setThisShowModal(true);
-      postEmail().then((res) => {
-        if (res.data === "success") {
-          setEmailLoading(false);
-        } else {
-          setEmailFailed(true);
-        }
-      });
+      postEmail()
+        .then((res) => {
+          console.log("here done sending meail");
+          if (res.data === "Done") {
+            setEmailLoading(false);
+          } else {
+            setEmailFailed(true);
+          }
+        })
+        .catch((err) => console.log(err));
     }
   };
 
