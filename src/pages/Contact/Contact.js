@@ -15,6 +15,7 @@ const Contact = () => {
   const [validation, setValidation] = React.useState(false);
   const [emailLoading, setEmailLoading] = React.useState(true);
   const [emailFailed, setEmailFailed] = React.useState(false);
+  const [sendError, setSendError] = React.useState(false);
 
   const handleChangeName = (event) => {
     setName(event.target.value);
@@ -35,10 +36,10 @@ const Contact = () => {
     setThisShowModal(false);
   };
   const postEmail = async () => {
-    const res = await axios.post(`${envConfig.BASEURL}/mail`, {
+    const res = await axios.post(`${envConfig.BASEURL}send-mail/`, {
       name,
       email,
-      message,
+      message: message,
     });
     return res;
   };
@@ -56,13 +57,17 @@ const Contact = () => {
       setEmailLoading(false);
     } else {
       setThisShowModal(true);
-      postEmail().then((res) => {
-        if (res.data === "success") {
-          setEmailLoading(false);
-        } else {
-          setEmailFailed(true);
-        }
-      });
+      postEmail()
+        .then((res) => {
+          const temp = JSON.parse(res.data.body);
+          console.log("here done sending meail", temp);
+          if (temp.message === "Email sent successfully!") {
+            setEmailLoading(false);
+          } else {
+            setEmailFailed(true);
+          }
+        })
+        .catch((err) => console.log("got error here", err));
     }
   };
 
@@ -130,6 +135,24 @@ const Contact = () => {
       </div>
       {thisShowModal && (
         <Modal close={close} successModal={true}>
+          {emailFailed && (
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <img
+                src={error}
+                alt="error"
+                style={{
+                  height: "50%",
+                  width: "15%",
+                  margin: "1rem",
+                  paddingTop: "1rem",
+                  objectFit: "contain",
+                }}
+              />
+              <p style={{ alignItems: "center", marginTop: "3.5rem" }}>
+                Failed to send email!!!!
+              </p>
+            </div>
+          )}
           {validation && (
             <div style={{ display: "flex", flexDirection: "row" }}>
               <img

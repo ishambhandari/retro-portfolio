@@ -24,11 +24,11 @@ const Works = () => {
   };
   const getData = async () => {
     try {
-      console.log("this is base url", `${envConfig.BASEURL}/works`);
-      const data = await axios.get(`${envConfig.BASEURL}/works`);
-      setAllWork(data.data);
+      const data = await axios.get(`${envConfig.BASEURL}get-projects`);
+      const tmpData = JSON.parse(data.data.body);
+      const finalAllData = tmpData.data;
+      setAllWork(finalAllData);
       setLoading(false);
-      console.log("this is api datad", data);
     } catch (error) {
       console.log("this is error", error);
     }
@@ -42,10 +42,12 @@ const Works = () => {
     try {
       // const imgData = await axios.get(`${envConfig.BASEURL}/works/${id}`);
       const singleWorkData = await axios.get(
-        `${envConfig.BASEURL}/works/${id}`,
+        `${envConfig.BASEURL}get-projects/?projectID=${id}`,
       );
       // await setWorkImages(imgData.data);
-      await setWorkDes(singleWorkData.data);
+      const temp = JSON.parse(singleWorkData.data.body);
+      setWorkDes(temp.data[0]);
+      console.log("this is data", singleWorkData);
       console.log("workdesk", workDes);
     } catch (error) {
       setImgLoading(false);
@@ -84,20 +86,21 @@ const Works = () => {
             <div>
               {console.log("this is data11", allWork)}
               {allWork.map((res) => {
-                console.log("rrreess", res);
+                console.log("rrreess", res.projectID);
                 const newd = `${res.file_location}`;
                 console.log("file image", res.file_location);
 
                 return (
                   <div className="nes-container work-card" key={res.id}>
+                    <p>{res.title}</p>
                     <div style={{ textAlign: "center", marginBottom: "1rem" }}>
                       {console.log("ii", newd)}
-                      <img src={res.imageUrl} alt="Project" className="image" />
+                      <img src={res.imageUrl} alt="  " className="image" />
                     </div>
                     <button
                       type="button"
                       className="nes-btn is-primary button-text"
-                      onClick={() => onClickModal(res.id)}
+                      onClick={() => onClickModal(res.projectID)}
                     >
                       View Project
                     </button>
